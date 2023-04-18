@@ -1,5 +1,7 @@
 # Rules Plugin for https://github.com/olebedev/when
 
+[![codecov](https://codecov.io/gh/duc-cnzj/when-rules/branch/master/graph/badge.svg?token=LG44ZOD9YU)](https://codecov.io/gh/duc-cnzj/when-rules)
+
 ## Rules
 
 - zh
@@ -10,6 +12,8 @@
 go get -u github.com/olebedev/when
 go get -u github.com/duc-cnzj/when-rules
 ```
+
+## Usage
 
 ```go
 w := when.New(nil)
