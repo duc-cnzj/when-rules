@@ -16,7 +16,7 @@ w := when.New(nil)
 w.Add(zh.All...)
 w.Add(common.All...)
 
-text := "drop me a line in next wednesday at 2:25 p.m"
+text := "明晚8点"
 r, err := w.Parse(text, time.Now())
 if err != nil {
 	// an error has occurred

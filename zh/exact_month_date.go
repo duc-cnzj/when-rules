@@ -17,13 +17,12 @@ func ExactMonthDate(s rules.Strategy) rules.Rule {
 
 	return &rules.F{
 		RegExp: regexp.MustCompile("" +
-			"(?:\\W|^)" +
-			"(1[0-2]|[1-9]|" + MON_WORDS_PATTERN + ")" + "(?:\\s*)" +
-			"(月|-|/|\\.|)" + "(?:\\s*)" +
+			"(?:\\s|^)" +
+			"(1[0-2]|[1-9]|" + MON_WORDS_PATTERN + ")" + "(?:\\s*)" + "(月|-|/|\\.)" +
+			"(?:\\s*)" +
 			"(1[0-9]|2[0-9]|3[0-1]|[1-9]|" + DAY_WORDS_PATTERN + ")" + "(?:\\s*)" +
 			"(日|号)?",
 		),
-
 		Applier: func(m *rules.Match, c *rules.Context, o *rules.Options, ref time.Time) (bool, error) {
 			_ = overwrite
 			if m.Captures[1] == "" {
