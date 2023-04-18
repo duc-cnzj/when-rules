@@ -18,7 +18,7 @@ func AfterTime(s rules.Strategy) rules.Rule {
 		RegExp: regexp.MustCompile("(?i)" +
 			"((?:[0-9]{0,3}))?" +
 			"(" + INTEGER_WORDS_PATTERN[3:] + "?" + "\\s*" +
-			"(?:(m|min|分|分钟|小时|h|hour|天|day|d|周|月|mon)\\s*)" +
+			"(?:(秒|s|m|min|分|分钟|小时|h|hour|天|day|d|周|月|mon)\\s*)" +
 			"(后)" +
 			"(?:\\W|$)",
 		),
@@ -37,6 +37,8 @@ func AfterTime(s rules.Strategy) rules.Rule {
 			}
 
 			switch m.Captures[2] {
+			case "秒", "s":
+				c.Duration = time.Second * time.Duration(duration)
 			case "分钟", "分", "m", "min":
 				c.Duration = time.Minute * time.Duration(duration)
 			case "小时", "h", "hour":
