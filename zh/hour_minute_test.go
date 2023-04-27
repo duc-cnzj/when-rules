@@ -39,6 +39,10 @@ func TestHourMinuteAfternoon(t *testing.T) {
 		{"八点半", 0, "八点半", 6*time.Hour + 30*time.Minute},
 	}
 
+	preNow := now
+	defer func() {
+		now = preNow
+	}()
 	now = time.Date(2023, time.April, 27, 14, 0, 0, 0, time.UTC)
 	w := when.New(nil)
 
