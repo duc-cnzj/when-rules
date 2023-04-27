@@ -33,3 +33,16 @@ func TestHourMinute(t *testing.T) {
 
 	ApplyFixtures(t, "zh.HourMinute", w, fixt)
 }
+
+func TestHourMinuteAfternoon(t *testing.T) {
+	fixt := []Fixture{
+		{"八点半", 0, "八点半", 6*time.Hour + 30*time.Minute},
+	}
+
+	now = time.Date(2023, time.April, 27, 14, 0, 0, 0, time.UTC)
+	w := when.New(nil)
+
+	w.Add(zh.HourMinute(rules.Override))
+
+	ApplyFixtures(t, "zh.HourMinute", w, fixt)
+}

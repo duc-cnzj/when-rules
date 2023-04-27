@@ -67,9 +67,12 @@ func HourMinute(s rules.Strategy) rules.Rule {
 				if hour > 23 {
 					return false, nil
 				}
+				if ref.Hour() >= 12 && hour < 12 {
+					hour += 12
+				}
 				c.Hour = &hour
-
 			}
+
 			return true, nil
 		},
 	}
